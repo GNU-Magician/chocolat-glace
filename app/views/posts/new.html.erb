@@ -9,7 +9,8 @@
 
                             <!-- POST -->
                             <div class="post">
-                                <form action="#" class="form newtopic" method="post">
+                              <%= form_for(@post, :html => {class:"form newtopic", role: "form" }) do |field| %>
+
                                     <div class="topwrap">
                                         <div class="userinfo pull-left">
                                             <div class="avatar">
@@ -21,7 +22,7 @@
                                         <div class="posttext pull-left">
 
                                             <div>
-                                                <input type="text" placeholder="Enter Topic Title" class="form-control">
+                                              <%= field.text_field :title, class: "form-control", placeholder: "Enter post title" %>
                                             </div>
 
                                             <div class="row">
@@ -42,7 +43,7 @@
                                             </div>
 
                                             <div>
-                                                <textarea name="desc" id="desc" placeholder="Description" class="form-control"></textarea>
+                                              <%= field.text_area :description, class: "form-control", placeholder: "Type in the description"%>
                                             </div>
                                             <div class="row newtopcheckbox">
                                                 <div class="col-lg-6 col-md-6">
@@ -77,19 +78,17 @@
                                     <div class="postinfobot">
 
 
-
-
-
                                         <div class="pull-right postreply">
                                             <div class="pull-left smile"><a href="#"><i class="fa fa-smile-o"></i></a></div>
-                                            <div class="pull-left"><button type="submit" class="btn btn-primary">Post</button></div>
+                                            <div class="pull-left"><%= field.submit class: "btn btn-primary"%>
+                                              </div>
                                             <div class="clearfix"></div>
                                         </div>
 
 
                                         <div class="clearfix"></div>
                                     </div>
-                                </form>
+                                <% end %>
                             </div><!-- POST -->
 
 

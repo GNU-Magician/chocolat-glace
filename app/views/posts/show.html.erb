@@ -1,54 +1,42 @@
 
+<div class="post beforepagination">
+  <div class="topwrap">
+    <div class="userinfo pull-left">
+      <div class="avatar">
 
+        <div class="status green">&nbsp;</div>
+      </div>
 
+      <div class="icons">
+      </div>
+    </div>
+    <div class="posttext pull-left">
+      <h2><%= @post.title %></h2>
+      <p><%= @post.description %></p>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="postinfobot">
 
-            <!-- Slider -->
+    <div class="likeblock pull-left">
+      <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>25</a>
+      <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>3</a>
+    </div>
 
-            <!-- //Slider -->
+    <div class="prev pull-left">
+      <a href="#"><i class="fa fa-reply"></i></a>
+    </div>
 
+    <div class="posted pull-left"><i class="fa fa-clock-o"></i>
+      Created <%= time_ago_in_words @post.created_at %> ago</div>
 
+    <div class="next pull-right">
+      <a href="#"><i class="fa fa-pencil"></i></a>
 
+      <a href="#"><i class="fa fa-trash"></i></a>
+    </div>
 
-
-                            <!-- POST -->
-                            <div class="post beforepagination">
-                                <div class="topwrap">
-                                    <div class="userinfo pull-left">
-                                        <div class="avatar">
-
-                                            <div class="status green">&nbsp;</div>
-                                        </div>
-
-                                        <div class="icons">
-                                        </div>
-                                    </div>
-                                    <div class="posttext pull-left">
-                                        <h2><%= @post.title %></h2>
-                                        <p><%= @post.description %></p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>                              
-                                <div class="postinfobot">
-
-                                    <div class="likeblock pull-left">
-                                        <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>25</a>
-                                        <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>3</a>
-                                    </div>
-
-                                    <div class="prev pull-left">                                        
-                                        <a href="#"><i class="fa fa-reply"></i></a>
-                                    </div>
-
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i>
-                                     Created <%= time_ago_in_words @post.created_at %> ago</div>
-
-                                    <div class="next pull-right">                                        
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-
-                                        <a href="#"><i class="fa fa-trash"></i></a>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- POST -->
+    <div class="clearfix"></div>
+  </div>
+</div><!-- POST -->
 

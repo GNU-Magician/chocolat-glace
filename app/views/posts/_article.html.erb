@@ -10,9 +10,13 @@
       </div>
       <div class="posttext pull-left">
         <h2><%= link_to post.title, post_path(post) %></a></h2>
-        <p><%= post.description %></p>
+        <%= post.description %>
+        <hr>
+
+        <p>Post created <%= time_ago_in_words post.created_at %> ago.</p>
+
       </div>
-      <div class="clearfix" style="padding-left: 100px">
+      <div class="clearfix" style="padding-left: 100px; padding-bottom: 20px;">
         <%= link_to "Edit", edit_post_path(post), class: "btn btn-xs btn-primary" %>
         <%= link_to "Delete", post_path(post), method: :delete,
                     data:{confirm: "Are you sure?"},
