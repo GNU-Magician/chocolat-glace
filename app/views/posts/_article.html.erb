@@ -1,0 +1,35 @@
+<% @posts.each do |post| %>
+  <div class="post">
+    <div class="wrap-ut pull-left">
+      <div class="userinfo pull-left">
+        <div class="avatar">
+          <%= image_tag "images/avatar.jpg" %>
+          <div class="status green">&nbsp;</div>
+        </div>
+
+      </div>
+      <div class="posttext pull-left">
+        <h2><%= link_to post.title, post_path(post) %></a></h2>
+        <p><%= post.description %></p>
+      </div>
+      <div class="clearfix" style="padding-left: 100px">
+        <%= link_to "Edit", edit_post_path(post), class: "btn btn-xs btn-primary" %>
+        <%= link_to "Delete", post_path(post), method: :delete,
+                    data:{confirm: "Are you sure?"},
+                    class: "btn btn-xs btn-danger" %>
+      </div>
+    </div>
+    <div class="postinfo pull-left">
+      <div class="comments">
+        <div class="commentbg">
+          560
+          <div class="mark"></div>
+        </div>
+
+      </div>
+      <div class="views"><i class="fa fa-eye"></i> 1,568</div>
+      <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+<% end %>

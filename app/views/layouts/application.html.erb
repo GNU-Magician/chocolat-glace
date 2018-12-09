@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChocolatGlace</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+  <body>
+  <%= render 'layouts/navigation' %>
+  <section class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <%= yield %>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <%= render 'layouts/sidebar' %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render 'layouts/pagination' %>
+
+
+  </body>
+</html>
