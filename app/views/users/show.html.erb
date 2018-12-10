@@ -1,0 +1,13 @@
+<div class="post">
+<div class="custom">
+<h1 align="center"><%= @user.username %></h1>
+  <h2 align="center">  <%= pluralize @user.posts.count, "post" %></h2>
+  <h3 align="center"><%= link_to "Edit Your Information", edit_user_path(@user) %></h3>
+  <h3 align="center"><%= link_to "Delete This User", user_path(@user), method: :delete %></h3>
+
+</div>
+
+</div>
+<%= render "users/posts" %>
+
+

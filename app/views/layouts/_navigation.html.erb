@@ -31,18 +31,15 @@
           <%= link_to "Start New Topic", new_post_path, class: "btn btn-primary" %>
           </form>
         </div>
-        <div class="env pull-left"><i class="fa fa-envelope"></i></div>
 
-        <div class="avatar pull-left dropdown">
-          <a data-toggle="dropdown" href="#"><%= image_tag "images/avatar.jpg" %></a> <b class="caret"></b>
-          <div class="status green">&nbsp;</div>
-          <ul class="dropdown-menu" role="menu">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-3" href="#">Log Out</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>
-          </ul>
-        </div>
+        <% if logged_in? %>
+          <div class="env pull-left"><%= link_to "Logout", logout_path %></div>
+          <h5><%= link_to current_user.username, user_path(current_user) %></h5>
+          <% else %>
+          <div class="env pull-left"><%= link_to " Login", login_path %></div>
+          <h5><%= link_to "Sign Up ", signup_path %> </h5>
+
+      <%end%>
 
         <div class="clearfix"></div>
       </div>
