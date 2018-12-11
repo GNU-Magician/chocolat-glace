@@ -1,42 +1,42 @@
 
-<div class="post beforepagination">
-  <div class="topwrap">
+<div class="post">
+  <div class="wrap-ut pull-left">
     <div class="userinfo pull-left">
       <div class="avatar">
-
-        <div class="status green">&nbsp;</div>
+        <%= image_tag "images/avatar.jpg" %>
       </div>
 
-      <div class="icons">
-      </div>
     </div>
     <div class="posttext pull-left">
-      <h2><%= @post.title %></h2>
-      <p><%= @post.description %></p>
+      <%= link_to @post.user.username, user_path(@post.user) %>
+
+      <h2><%= link_to @post.title, post_path(@post) %></a></h2>
+      <%= @post.description %>
+      <hr>
+
+      <p>Post created <%= time_ago_in_words @post.created_at %> ago.</p>
+
     </div>
-    <div class="clearfix"></div>
+    <% if @post.user == current_user %>
+    <div class="clearfix" style="padding-left: 100px; padding-bottom: 20px;">
+      <%= link_to "Edit", edit_post_path(@post), class: "btn btn-xs btn-primary" %>
+      <%= link_to "Delete", post_path(@post), method: :delete,
+                  data:{confirm: "Are you sure?"},
+                  class: "btn btn-xs btn-danger" %>
+    </div>
+      <% end %>
   </div>
-  <div class="postinfobot">
+  <div class="postinfo pull-left">
+    <div class="comments">
+      <div class="commentbg">
+        560
+        <div class="mark"></div>
+      </div>
 
-    <div class="likeblock pull-left">
-      <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>25</a>
-      <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>3</a>
     </div>
-
-    <div class="prev pull-left">
-      <a href="#"><i class="fa fa-reply"></i></a>
-    </div>
-
-    <div class="posted pull-left"><i class="fa fa-clock-o"></i>
-      Created <%= time_ago_in_words @post.created_at %> ago</div>
-
-    <div class="next pull-right">
-      <a href="#"><i class="fa fa-pencil"></i></a>
-
-      <a href="#"><i class="fa fa-trash"></i></a>
-    </div>
-
-    <div class="clearfix"></div>
+    <div class="views"><i class="fa fa-eye"></i> 1,568</div>
+    <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>
   </div>
-</div><!-- POST -->
+  <div class="clearfix"></div>
+</div>
 

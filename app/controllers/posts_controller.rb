@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:update, :edit, :destroy]
   def index
     @posts = Post.all
 
@@ -10,12 +12,16 @@ class PostsController < ApplicationController
   end
 
   def new
+    @topics = Topic.all
     @post = Post.new
 
   end
 
   def create
+    @topics = Topic.all
     @post = Post.new(post_params)
+    @post.user = User.find(session[:user_id]) if session[:user_id]
+
     if @post.save
       flash[:success] = "Post was made successfully!"
       redirect_to posts_path
@@ -47,8 +53,23 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+
+  private
+
+
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :topic_id)
   end
+
+  def require_same_user
+    if current_user != @post.user
+      flash[:danger] = "You can only change your own post"
+      redirect_to posts_path
+
+    end
+
+  end
+
+
 
 end

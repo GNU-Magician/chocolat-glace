@@ -1,0 +1,21 @@
+<h1 align="center">Categories</h1>
+
+<% @categories.each do |category| %>
+  <div class="post">
+    <div class="wrap-ut pull-left">
+      <div class="userinfo pull-left">
+
+
+      </div>
+
+        <h2 align="center" style="padding-top: 20px;"><%= link_to category.name, category_path(category) %></a></h2>
+
+
+      <div class="clearfix" style="padding-left: 100px; padding-bottom: 20px;">
+
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+<% end %>
